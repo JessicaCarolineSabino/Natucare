@@ -25,6 +25,12 @@ namespace Natucare
         {
             services.AddControllersWithViews();
             services.AddDbContext<Contexto>(a => a.UseMySQL("server=localhost;database=BancoNATUCARE;user=root;password=;SslMode=none"));
+
+            services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuthentication", option =>
+            {
+                option.LoginPath = "/Login/Entrar";
+                option.AccessDeniedPath = "/Login/Ops";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +48,7 @@ namespace Natucare
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

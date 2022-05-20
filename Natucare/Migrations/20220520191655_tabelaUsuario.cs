@@ -3,30 +3,29 @@ using MySql.EntityFrameworkCore.Metadata;
 
 namespace Natucare.Migrations
 {
-    public partial class inicial : Migration
+    public partial class tabelaUsuario : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CLIENTES",
+                name: "USUARIOS",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(type: "text", nullable: true),
                     Login = table.Column<string>(type: "text", nullable: true),
                     Senha = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CLIENTES", x => x.Id);
+                    table.PrimaryKey("PK_USUARIOS", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CLIENTES");
+                name: "USUARIOS");
         }
     }
 }

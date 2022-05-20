@@ -8,8 +8,8 @@ using Natucare;
 namespace Natucare.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220513184411_inicial")]
-    partial class inicial
+    [Migration("20220520191655_tabelaUsuario")]
+    partial class tabelaUsuario
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,10 +24,27 @@ namespace Natucare.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Login")
+                    b.Property<string>("Endereco")
                         .HasColumnType("text");
 
                     b.Property<string>("Nome")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Telefone")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CLIENTES");
+                });
+
+            modelBuilder.Entity("Natucare.Entidades.Usuarios", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Login")
                         .HasColumnType("text");
 
                     b.Property<string>("Senha")
@@ -35,7 +52,7 @@ namespace Natucare.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CLIENTES");
+                    b.ToTable("USUARIOS");
                 });
 #pragma warning restore 612, 618
         }

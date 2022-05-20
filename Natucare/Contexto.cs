@@ -11,5 +11,6 @@ namespace Natucare
         public Contexto(DbContextOptions<Contexto> option) : base(option){ }
 
         public DbSet<Cliente> CLIENTES { get; set; }
+        public DbSet<Usuarios> USUARIOS { get; set; }
     }
 }
