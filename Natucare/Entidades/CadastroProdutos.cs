@@ -9,9 +9,9 @@ namespace Natucare.Entidades
     {
         public int Id { get; set; }
         public string Linha { get; set; }
-        public int Código { get; set; }
+        public int Codigo { get; set; }
         public string Produto { get; set; }
-        public int PreçoVenda { get; set; }
+        public decimal PrecoVenda { get; set; }
         public int QuantidadeEstoque { get; set; }
     }
 }

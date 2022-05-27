@@ -28,38 +28,12 @@ namespace Natucare.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("text");
 
-                    b.Property<int>("Telefone")
-                        .HasColumnType("int");
+                    b.Property<string>("Telefone")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.ToTable("CADASTROCLIENTE");
-                });
-
-            modelBuilder.Entity("Natucare.Entidades.CadastroProduto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("Código")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Linha")
-                        .HasColumnType("text");
-
-                    b.Property<int>("PreçoVenda")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Produto")
-                        .HasColumnType("text");
-
-                    b.Property<int>("QuantidadeEstoque")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CADASTROPRODUTO");
                 });
 
             modelBuilder.Entity("Natucare.Entidades.CadastroProdutos", b =>
@@ -68,14 +42,14 @@ namespace Natucare.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Código")
+                    b.Property<int>("Codigo")
                         .HasColumnType("int");
 
                     b.Property<string>("Linha")
                         .HasColumnType("text");
 
-                    b.Property<int>("PreçoVenda")
-                        .HasColumnType("int");
+                    b.Property<decimal>("PrecoVenda")
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Produto")
                         .HasColumnType("text");
