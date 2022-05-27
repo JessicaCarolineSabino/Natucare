@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Natucare.Entidades;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Natucare.Controllers
 {
+    [Authorize(AuthenticationSchemes = "CookieAuthentication")]
     public class ClienteController : Controller
     {
         private readonly Contexto db;

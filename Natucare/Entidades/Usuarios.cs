@@ -5,14 +5,12 @@ using System.Threading.Tasks;
 
 namespace Natucare.Entidades
 {
-    public class Cliente
+    public class Usuarios
     {
         public int Id { get; set; }
 
-        public string Nome { get; set; }
+        public string Login { get; set; }
 
-        public string Endereco { get; set; }
-
-        public string Telefone { get; set; }
+        public string Senha { get; set; }
     }
 }
