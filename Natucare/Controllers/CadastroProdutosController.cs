@@ -43,6 +43,7 @@ namespace Natucare.Controllers
             try
             {
                 db.CADASTROPRODUTOS.Add(collection);
+                db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch

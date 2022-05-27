@@ -22,12 +22,7 @@ namespace Natucare.Controllers
             return View(db.CADASTROCLIENTE.ToList());
         }
 
-        // GET: CadastroClienteController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
+       
         // GET: CadastroClienteController/Create
         public ActionResult Create()
         {
@@ -54,7 +49,8 @@ namespace Natucare.Controllers
         // GET: CadastroClienteController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(db.CADASTROPRODUTOS.Where(a => a.Id == id).FirstOrDefault());
+            CadastroCliente teste = db.CADASTROCLIENTE.Where(a => a.Id == id).FirstOrDefault();
+            return View(db.CADASTROCLIENTE.Find(id));
         }
 
         // POST: CadastroClienteController/Edit/5
