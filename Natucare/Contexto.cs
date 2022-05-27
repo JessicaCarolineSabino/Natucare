@@ -12,5 +12,7 @@ namespace Natucare
 
         public DbSet<Cliente> CLIENTES { get; set; }
         public DbSet<Usuarios> USUARIOS { get; set; }
+        public DbSet<CadastroProdutos> CADASTROPRODUTOS { get; set; }
+        public DbSet<CadastroCliente> CADASTROCLIENTE { get; set; }
     }
 }
