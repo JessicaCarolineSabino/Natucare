@@ -1,0 +1,62 @@
+﻿@model Natucare.Models.VendasModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Nova Venda</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label>Selecione o cliente</label>
+                <select name="CadastroClienteId" class="form-control">
+                    @if (Model.ListaTodosClientes.Count > 0)
+                    {
+                        foreach (var item in Model.ListaTodosClientes)
+                        {
+                            <option value="@item.Id">@item.Nome</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Selecione o Produto</label>
+                <select name="ProdutoId" class="form-control">
+                    @if (Model.ListaTodosProdutos.Count > 0)
+                    {
+                        foreach (var item in Model.ListaTodosProdutos)
+                        {
+                            <option value="@item.Id">@item.Produto</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Quantidade</label>
+                <input type="number" class="form-control" name="Quantidade" />
+            </div>
+
+            <div class="form-group">
+                <label>Ciclo</label>
+                <input type="number" class="form-control" name="Ciclo" />
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Salvar Venda" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

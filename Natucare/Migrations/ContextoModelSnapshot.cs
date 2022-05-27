@@ -62,26 +62,6 @@ namespace Natucare.Migrations
                     b.ToTable("CADASTROPRODUTOS");
                 });
 
-            modelBuilder.Entity("Natucare.Entidades.Cliente", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Endereco")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Telefone")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CLIENTES");
-                });
-
             modelBuilder.Entity("Natucare.Entidades.Usuarios", b =>
                 {
                     b.Property<int>("Id")
@@ -97,6 +77,58 @@ namespace Natucare.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("USUARIOS");
+                });
+
+            modelBuilder.Entity("Natucare.Entidades.Vendas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CadastroClienteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Ciclo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ValorTotal")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<decimal>("precoProduto")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CadastroClienteId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("VENDAS");
+                });
+
+            modelBuilder.Entity("Natucare.Entidades.Vendas", b =>
+                {
+                    b.HasOne("Natucare.Entidades.CadastroCliente", "cadastroCliente")
+                        .WithMany()
+                        .HasForeignKey("CadastroClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Natucare.Entidades.CadastroProdutos", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("cadastroCliente");
+
+                    b.Navigation("Produto");
                 });
 #pragma warning restore 612, 618
         }

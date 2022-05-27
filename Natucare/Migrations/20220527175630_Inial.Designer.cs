@@ -8,8 +8,8 @@ using Natucare;
 namespace Natucare.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220527165317_Inicial")]
-    partial class Inicial
+    [Migration("20220527175630_Inial")]
+    partial class Inial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,7 +64,7 @@ namespace Natucare.Migrations
                     b.ToTable("CADASTROPRODUTOS");
                 });
 
-            modelBuilder.Entity("Natucare.Entidades.Cliente", b =>
+            modelBuilder.Entity("Natucare.Entidades.Usuarios", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,15 +73,64 @@ namespace Natucare.Migrations
                     b.Property<string>("Login")
                         .HasColumnType("text");
 
-                    b.Property<string>("Nome")
-                        .HasColumnType("text");
-
                     b.Property<string>("Senha")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CLIENTES");
+                    b.ToTable("USUARIOS");
+                });
+
+            modelBuilder.Entity("Natucare.Entidades.Vendas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CadastroClienteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Ciclo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ValorTotal")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<decimal>("precoProduto")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CadastroClienteId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("VENDAS");
+                });
+
+            modelBuilder.Entity("Natucare.Entidades.Vendas", b =>
+                {
+                    b.HasOne("Natucare.Entidades.CadastroCliente", "cadastroCliente")
+                        .WithMany()
+                        .HasForeignKey("CadastroClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Natucare.Entidades.CadastroProdutos", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("cadastroCliente");
+
+                    b.Navigation("Produto");
                 });
 #pragma warning restore 612, 618
         }
