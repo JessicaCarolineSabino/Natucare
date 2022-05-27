@@ -1,0 +1,54 @@
+﻿@model Natucare.Entidades.CadastroProdutos
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Cadastro de Produto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Linha" class="control-label"></label>
+                <input asp-for="Linha" class="form-control" />
+                <span asp-validation-for="Linha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Código" class="control-label"></label>
+                <input asp-for="Código" class="form-control" />
+                <span asp-validation-for="Código" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto" class="control-label"></label>
+                <input asp-for="Produto" class="form-control" />
+                <span asp-validation-for="Produto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreçoVenda" class="control-label"></label>
+                <input asp-for="PreçoVenda" class="form-control" />
+                <span asp-validation-for="PreçoVenda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantidadeEstoque" class="control-label"></label>
+                <input asp-for="QuantidadeEstoque" class="form-control" />
+                <span asp-validation-for="QuantidadeEstoque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
