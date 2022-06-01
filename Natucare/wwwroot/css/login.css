@@ -1,0 +1,61 @@
+﻿.login {
+    position: absolute;
+    width: 500px;
+    height: 687px;
+    left: 710px;
+    top: 212px;
+    background: rgba(232, 232, 232, 0.66);
+    border-radius: 30px;
+}
+.title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    padding: 60px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200px;
+}
+.users {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    color: #000000;
+    padding: 5px 30px;
+    margin: auto;
+}
+.field {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 5px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    margin: auto;
+}
+body{
+    background-image: url('../img/tela fundo.png');
+    background-repeat: no-repeat;
+    background-position: right 0;
+    background-size: cover;
+}
+.botao {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+    background: rgba(255, 177, 210, 0.82);
+    border: 1px solid #EFD6D6;
+    border-radius: 10px;
+}
