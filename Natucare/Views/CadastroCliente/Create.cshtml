@@ -31,13 +31,14 @@
                 <div class="form-group">
                     <input type="submit" value="Salvar" class="botao" />
                 </div>
+                <div>
+                    <button asp-action="Index" class="cancel">Cancelar</button>
+                </div>
             </form>
         </div>
     </div>
 
-    <div>
-        <button asp-action="Index" class="cancel">Cancelar</button>
-    </div>
+   
 </body>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -1,9 +1,12 @@
 ﻿.header {
     background: url('../img/tela fundo.png');
-    padding: 15px 10px;
     background-repeat: no-repeat;
     background-position: right 0;
     background-size: cover;
+    display: flex;
+    padding: 10px 30px;
+    
+
 }
 .font {
     font-family: 'Inter';
@@ -22,7 +25,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 200;
-    font-size: 36px;
+    font-size: 25px;
     line-height: 44px;
     display: flex;
     align-items: center;
@@ -66,4 +69,13 @@
 }
 body {
     background: #FFF8FB;
+}
+.login {
+    position: absolute;
+    width: 500px;
+    height: 687px;
+    left: 710px;
+    top: 212px;
+    background: rgba(232, 232, 232, 0.66);
+    border-radius: 30px;
 }
