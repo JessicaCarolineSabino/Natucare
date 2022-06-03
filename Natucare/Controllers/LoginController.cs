@@ -26,25 +26,35 @@ namespace Natucare.Controllers
         [HttpPost]
         public async Task<IActionResult> Entrar(string login, string senha)
         {
-            Usuarios usuarioLogado = db.USUARIOS.Where(a => a.Login == login && a.Senha == senha).FirstOrDefault();
+            /* Usuarios usuarioLogado = db.USUARIOS.Where(a => a.Login == login && a.Senha == senha).FirstOrDefault();
 
             if (usuarioLogado == null)
             {
                 TempData["erro"] = "Usuário e senha inválidos";
                 return View();
             }
-
-            var claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypes.Name, usuarioLogado.Login));
-            claims.Add(new Claim(ClaimTypes.Sid, usuarioLogado.Id.ToString()));
-
-            var userIdentity = new ClaimsIdentity(claims, "Acesso");
-
-            ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-            await HttpContext.SignInAsync("CookieAuthentication", principal, new AuthenticationProperties());
+            */
+            if (login == "admin" && senha == "123")
+            {
 
 
-            return Redirect("/");
+                var claims = new List<Claim>();
+                claims.Add(new Claim(ClaimTypes.Name, "Admin"));
+                claims.Add(new Claim(ClaimTypes.Sid, "1"));
+
+                var userIdentity = new ClaimsIdentity(claims, "Acesso");
+
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                await HttpContext.SignInAsync("CookieAuthentication", principal, new AuthenticationProperties());
+
+
+                return Redirect("/CadastroProdutos");
+            }
+            else
+            {
+                TempData["erro"] = "Usuário e senha inválidos";
+                return View();
+            }
         }
         public async Task<IActionResult> Logoff()
         {

@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Create";
 }
-
+<link href="~/css/cadastrocliente.css" rel="stylesheet" />
 <h1>Nova Venda</h1>
 
 <hr />
@@ -47,15 +47,15 @@
 
 
             <div class="form-group">
-                <input type="submit" value="Salvar Venda" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="botao" />
+            </div>
+            <div>
+                <button asp-action="Index" class="cancel">Cancelar</button>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

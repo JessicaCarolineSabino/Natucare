@@ -3,12 +3,13 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Clientes</h1>
-
-<p>
-    <a asp-action="Create">Novo</a>
-</p>
+<link href="~/css/cadastrocliente.css" rel="stylesheet" />
+<header class="header">
+    <span class="font">Clientes</span>
+    <div class="ml-auto">
+        <a asp-action="Create" class="new text-decoration-none font">Novo</a>
+    </div>
+</header>
 <table class="table">
     <thead>
         <tr>
@@ -25,22 +26,23 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Endereço)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefone)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereço)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="new text-decoration-none" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Delete" class="new text-decoration-none" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

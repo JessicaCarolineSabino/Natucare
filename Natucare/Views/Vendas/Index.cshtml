@@ -4,11 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Consulta de Vendas</h1>
-
-<p>
-    <a asp-action="Create">Novo</a>
-</p>
+<link href="~/css/cadastrocliente.css" rel="stylesheet" />
+<header class="header">
+    <span class="font">Vendas</span>
+    <div class="ml-auto">
+        <a asp-action="Create" class="new text-decoration-none font">Novo</a>
+    </div>
+</header>
 <table class="table">
     <thead>
         <tr>
@@ -37,34 +39,35 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cadastroCliente.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Produto.Produto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precoProduto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ciclo)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cadastroCliente.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Produto.Produto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precoProduto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ciclo)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="new text-decoration-none" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Delete" class="new text-decoration-none" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

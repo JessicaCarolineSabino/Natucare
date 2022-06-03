@@ -1,9 +1,6 @@
 ﻿.login {
-    position: absolute;
     width: 500px;
     height: 687px;
-    left: 710px;
-    top: 212px;
     background: rgba(232, 232, 232, 0.66);
     border-radius: 30px;
 }
